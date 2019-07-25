@@ -16,7 +16,7 @@ let message = document.querySelector(".message"),
             important: false
         };
 
-        console.log(newToDo);
+        //console.log(newToDo);
         taskList.push(newToDo);
         displayList();
         localStorage.setItem('todo', JSON.stringify(taskList));
@@ -28,21 +28,18 @@ let message = document.querySelector(".message"),
         taskList.forEach(function(item, i){
             ttask += `
             <li>
-            <input type='checkbox' id='item_${i} ${item.checked ? 'checked' : ''}>
+            <input type='checkbox' id='item_${i}' ${item.checked ? 'checked' : ''}>
             <label for='item_${i}'>${item.task}</label>
             </li>
             `;
-            console.log(item);
             ulToDo.innerHTML = ttask;
         })
     }
 
-    FIXME:
-    todo.addEventListener('change', function(event){
+    ulToDo.addEventListener('change', function(event){
         let idInput = event.target.getAttribute('id');
         let forLabel = ulToDo.querySelector('[for='+ idInput +']');
         let valueLabel = forLabel.innerHTML;
-
         taskList.forEach(function(item){
             if(item.task === valueLabel){
                 item.checked = !item.checked;
