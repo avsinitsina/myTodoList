@@ -24,6 +24,7 @@ let message = document.querySelector(".message"),
     
     function displayList(){
         let ttask = '';
+        if(taskList.length === 0) ulToDo.innerHTML = '';
         taskList.forEach(function(item, i){
             ttask += `
             <li>
